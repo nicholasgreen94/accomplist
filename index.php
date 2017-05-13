@@ -18,8 +18,8 @@
           <h1>Your List</h1>
           <ul id="list">
             <li class="list_item"><p>Clean the Dishes</p> <span class="u-pull-right"><b class="delete">&#10005;</b><b class="move_up">&#9720;</b><b class="move_down">&#9727;</b><b class="complete">&#10003;</b></span></li>
-            <li class="list_item"><p>Clean the Dishes</p> <span class="u-pull-right"><b class="delete">&#10005;</b><b class="move_up">&#9720;</b><b class="move_down">&#9727;</b><b class="complete">&#10003;</b></span></li>
-            <li class="list_item"><p>Clean the Dishes</p> <span class="u-pull-right"><b class="delete">&#10005;</b><b class="move_up">&#9720;</b><b class="move_down">&#9727;</b><b class="complete">&#10003;</b></span></li>
+            <li class="list_item"><p>Laundry</p> <span class="u-pull-right"><b class="delete">&#10005;</b><b class="move_up">&#9720;</b><b class="move_down">&#9727;</b><b class="complete">&#10003;</b></span></li>
+            <li class="list_item"><p>Exercise</p> <span class="u-pull-right"><b class="delete">&#10005;</b><b class="move_up">&#9720;</b><b class="move_down">&#9727;</b><b class="complete">&#10003;</b></span></li>
           </ul>
           <input type="text" name="user_input" id="add_input">
           <div id="add">

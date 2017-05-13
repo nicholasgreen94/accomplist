@@ -69,27 +69,33 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* line 12, ../sass/styles.scss */
 body {
+  min-height: 100%;
+  height: 100vh;
   font-family: "Questrial", sans-serif;
+  background: linear-gradient(150deg, #ffffff 50%, #ec8146 50%, #ec8146 100%);
 }
 
-/* line 16, ../sass/styles.scss */
-.column {
+/* line 19, ../sass/styles.scss */
+.column,
+.columns {
   float: none;
+  margin: 0 auto;
 }
 
-/* line 21, ../sass/styles.scss */
+/* line 26, ../sass/styles.scss */
 #primary_list {
+  background: #fff;
   box-shadow: 0 0 6px darkgrey;
   margin: 62px auto 0;
   text-align: center;
 }
-/* line 25, ../sass/styles.scss */
+/* line 31, ../sass/styles.scss */
 #primary_list .gradient_bar {
   background: linear-gradient(90deg, #ec8146, #e04b4b);
   height: 10px;
   width: 100%;
 }
-/* line 30, ../sass/styles.scss */
+/* line 36, ../sass/styles.scss */
 #primary_list #profile_image {
   border-radius: 50%;
   margin-top: 36px;
@@ -97,48 +103,53 @@ body {
   height: 164px;
   width: 164px;
 }
-/* line 37, ../sass/styles.scss */
+/* line 43, ../sass/styles.scss */
 #primary_list h1 {
   font-size: 34px;
   margin: 12px 0 36px;
 }
-/* line 41, ../sass/styles.scss */
+/* line 47, ../sass/styles.scss */
 #primary_list #list {
   width: 100%;
 }
-/* line 43, ../sass/styles.scss */
+/* line 49, ../sass/styles.scss */
 #primary_list #list .list_item {
   border-top: 1px solid darkgrey;
   padding: 16px;
   text-align: left;
+  position: relative;
 }
-/* line 47, ../sass/styles.scss */
+/* line 54, ../sass/styles.scss */
+#primary_list #list .list_item:last-child {
+  border-bottom: 1px solid darkgrey;
+}
+/* line 57, ../sass/styles.scss */
 #primary_list #list .list_item p {
   display: inline-block;
   font-size: 14px;
   width: 54%;
 }
-/* line 52, ../sass/styles.scss */
+/* line 62, ../sass/styles.scss */
 #primary_list #list .list_item b {
   display: inline-block;
   font-size: 24px;
   margin: 0 12px;
 }
-/* line 56, ../sass/styles.scss */
+/* line 66, ../sass/styles.scss */
 #primary_list #list .list_item b:hover {
   cursor: pointer;
 }
-/* line 59, ../sass/styles.scss */
+/* line 69, ../sass/styles.scss */
 #primary_list #list .list_item b:last-of-type {
   margin-right: 0;
 }
 
-/* line 67, ../sass/styles.scss */
+/* line 77, ../sass/styles.scss */
 .delete {
   color: #e04b4b;
 }
 
-/* line 71, ../sass/styles.scss */
+/* line 81, ../sass/styles.scss */
 .move_up,
 .move_down {
   color: #ec8146;
@@ -150,7 +161,7 @@ body {
   top: 2px;
 }
 
-/* line 79, ../sass/styles.scss */
+/* line 89, ../sass/styles.scss */
 .move_down {
   -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -159,18 +170,18 @@ body {
   top: -8px;
 }
 
-/* line 84, ../sass/styles.scss */
+/* line 94, ../sass/styles.scss */
 .complete {
   color: #13a43c;
 }
 
-/* line 88, ../sass/styles.scss */
+/* line 98, ../sass/styles.scss */
 input {
   font-size: 16px;
   width: 76%;
 }
 
-/* line 93, ../sass/styles.scss */
+/* line 103, ../sass/styles.scss */
 #add {
   background: #ec8146;
   border: 2px solid transparent;
@@ -183,14 +194,14 @@ input {
   left: 2%;
   top: 12px;
 }
-/* line 104, ../sass/styles.scss */
+/* line 114, ../sass/styles.scss */
 #add:hover {
   background: #fff;
   border: 2px solid #ec8146;
   color: #ec8146;
   cursor: pointer;
 }
-/* line 110, ../sass/styles.scss */
+/* line 120, ../sass/styles.scss */
 #add span {
   font-size: 40px;
   -moz-transform: translate(-50%, -50%);
@@ -200,4 +211,22 @@ input {
   position: absolute;
   top: 44%;
   left: 50%;
+}
+
+/* line 129, ../sass/styles.scss */
+.error {
+  background: #e04b4b;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 14px;
+  padding: 12px;
+}
+
+/* line 137, ../sass/styles.scss */
+.task_complete {
+  background: #13a43c;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 14px;
+  padding: 12px;
 }
