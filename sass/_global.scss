@@ -1,0 +1,32 @@
+//> Colors
+$green: #0bcfa0;
+$red: #e9594b;
+$orange: #e66d4d;
+$pink: #e44c6c;
+$white: #fff;
+
+//> Typefaces
+$questrial: "questrial", sans-serif;
+
+body {
+  box-sizing: border-box;
+  font-family: $questrial;
+  line-height: 1.5;
+  height: 100vh;
+  min-height: 100%;
+  position: relative;
+}
+
+.columns,
+.column {
+  float: none;
+  margin: 0 auto;
+}
+
+.gradient_bar {
+  background: -webkit-linear-gradient(to right, rgba($pink, 1), rgba($orange, 1));
+  background: -o-linear-gradient(to right, rgba($pink, 1), rgba($orange, 1));
+  background: linear-gradient(to right, rgba($pink, 1), rgba($orange, 1));
+  height: 8px;
+  width: 100%;
+}

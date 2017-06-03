@@ -1,0 +1,14 @@
+
+#main_header {
+  box-sizing: border-box;
+  background: -webkit-linear-gradient(to right, rgba($pink, 1), rgba($orange, 1));
+  background: -o-linear-gradient(to right, rgba($pink, 1), rgba($orange, 1));
+  background: linear-gradient(to right, rgba($pink, 1), rgba($orange, 1));
+  height: 46px;
+  text-align: center;
+  position:relative;
+  h2 {
+    color: $white;
+    font-size: 32px;
+  }
+}
