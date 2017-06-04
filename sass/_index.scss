@@ -73,10 +73,12 @@
 }
 
 #add_item {
+  background: $white;
   border-bottom: 1px solid #bbb;
   box-sizing: border-box;
   padding: 0 8px;
   text-align: center;
+  z-index: 30;
   position: relative;
   input,
   button {

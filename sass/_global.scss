@@ -36,7 +36,6 @@ body {
   animation-duration: .24s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
-  background: $green;
   box-sizing: border-box;
   color: $white;
   font-size: 13px;
@@ -48,15 +47,15 @@ body {
   position: absolute;
   bottom: 0;
 }
-
-.deleted {
+.error {
   background: $red;
 }
-
+.deleted {
+  background: $pink;
+}
 .success {
   background: $green;
 }
-
 .added {
   background: $orange;
 }

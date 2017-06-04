@@ -99,7 +99,6 @@ body {
   animation-duration: .24s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
-  background: #0bcfa0;
   box-sizing: border-box;
   color: #fff;
   font-size: 13px;
@@ -115,9 +114,14 @@ body {
   bottom: 0;
 }
 
-/* line 52, ../sass/_global.scss */
-.deleted {
+/* line 50, ../sass/_global.scss */
+.error {
   background: #e9594b;
+}
+
+/* line 53, ../sass/_global.scss */
+.deleted {
+  background: #e44c6c;
 }
 
 /* line 56, ../sass/_global.scss */
@@ -125,7 +129,7 @@ body {
   background: #0bcfa0;
 }
 
-/* line 60, ../sass/_global.scss */
+/* line 59, ../sass/_global.scss */
 .added {
   background: #e66d4d;
 }
@@ -246,24 +250,26 @@ body {
 
 /* line 75, ../sass/_index.scss */
 #add_item {
+  background: #fff;
   border-bottom: 1px solid #bbb;
   box-sizing: border-box;
   padding: 0 8px;
   text-align: center;
+  z-index: 30;
   position: relative;
 }
-/* line 81, ../sass/_index.scss */
+/* line 83, ../sass/_index.scss */
 #add_item input,
 #add_item button {
   border-radius: 0;
   box-sizing: border-box;
   margin: 8px 0;
 }
-/* line 87, ../sass/_index.scss */
+/* line 89, ../sass/_index.scss */
 #add_item input {
   width: 68%;
 }
-/* line 90, ../sass/_index.scss */
+/* line 92, ../sass/_index.scss */
 #add_item button {
   background: #e44c6c;
   border: none;
@@ -279,7 +285,7 @@ body {
   transition: ease-in-out 0.22s;
   width: 30%;
 }
-/* line 101, ../sass/_index.scss */
+/* line 103, ../sass/_index.scss */
 #add_item button:hover {
   background: #e66d4d;
 }
@@ -288,11 +294,11 @@ body {
   #add_item {
     position: relative;
   }
-  /* line 107, ../sass/_index.scss */
+  /* line 109, ../sass/_index.scss */
   #add_item input {
     width: 50%;
   }
-  /* line 110, ../sass/_index.scss */
+  /* line 112, ../sass/_index.scss */
   #add_item button {
     width: 20%;
   }
