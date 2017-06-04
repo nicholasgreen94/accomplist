@@ -30,3 +30,38 @@ body {
   height: 8px;
   width: 100%;
 }
+
+.message{
+  animation-name: slide;
+  animation-duration: .24s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  background: $green;
+  box-sizing: border-box;
+  color: $white;
+  font-size: 13px;
+  padding: 6px 0;
+  text-align: center;
+  @include transition( .24s ease-in-out );
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+}
+
+.deleted {
+  background: $red;
+}
+
+.success {
+  background: $green;
+}
+
+.added {
+  background: $orange;
+}
+
+@keyframes slide {
+  0% { bottom: 0; }
+  100% { bottom: -31px; }
+}

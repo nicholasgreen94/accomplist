@@ -10,10 +10,16 @@
   #primary_list {
     box-shadow: 0 0 8px rgba(0,0,0,0.3);
     position: relative;
+    #to_do_list {
+      background: $white;
+      z-index: 20;
+      position: relative;
+    }
     li {
       box-sizing: border-box;
       border-bottom: 1px solid rgba(0,0,0,0.4);
       padding: 8px;
+      z-index: 20;
       position: relative;
     }
     .btns {

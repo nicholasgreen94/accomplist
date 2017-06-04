@@ -93,6 +93,51 @@ body {
   width: 100%;
 }
 
+/* line 34, ../sass/_global.scss */
+.message {
+  animation-name: slide;
+  animation-duration: .24s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  background: #0bcfa0;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 0;
+  text-align: center;
+  -moz-transition: ease-in-out 0.24s;
+  -o-transition: ease-in-out 0.24s;
+  -webkit-transition: ease-in-out 0.24s;
+  transition: ease-in-out 0.24s;
+  width: 100%;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+}
+
+/* line 52, ../sass/_global.scss */
+.deleted {
+  background: #e9594b;
+}
+
+/* line 56, ../sass/_global.scss */
+.success {
+  background: #0bcfa0;
+}
+
+/* line 60, ../sass/_global.scss */
+.added {
+  background: #e66d4d;
+}
+
+@keyframes slide {
+  0% {
+    bottom: 0;
+  }
+  100% {
+    bottom: -31px;
+  }
+}
 /* line 2, ../sass/_header.scss */
 #main_header {
   box-sizing: border-box;
@@ -126,13 +171,20 @@ body {
   position: relative;
 }
 /* line 13, ../sass/_index.scss */
+#index #primary_list #to_do_list {
+  background: #fff;
+  z-index: 20;
+  position: relative;
+}
+/* line 18, ../sass/_index.scss */
 #index #primary_list li {
   box-sizing: border-box;
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   padding: 8px;
+  z-index: 20;
   position: relative;
 }
-/* line 19, ../sass/_index.scss */
+/* line 25, ../sass/_index.scss */
 #index #primary_list .btns {
   display: inline-block;
   margin: 0;
@@ -144,7 +196,7 @@ body {
   right: 8px;
   top: 50%;
 }
-/* line 26, ../sass/_index.scss */
+/* line 32, ../sass/_index.scss */
 #index #primary_list .btns button {
   border: none;
   box-sizing: border-box;
@@ -153,27 +205,27 @@ body {
   margin: 0 4px;
   padding: 0 4px;
 }
-/* line 33, ../sass/_index.scss */
+/* line 39, ../sass/_index.scss */
 #index #primary_list .btns button:hover {
   cursor: pointer;
 }
-/* line 36, ../sass/_index.scss */
+/* line 42, ../sass/_index.scss */
 #index #primary_list .btns button:first-of-type {
   margin-left: 0;
 }
-/* line 39, ../sass/_index.scss */
+/* line 45, ../sass/_index.scss */
 #index #primary_list .btns button:last-of-type {
   margin-right: 0;
 }
-/* line 43, ../sass/_index.scss */
+/* line 49, ../sass/_index.scss */
 #index #primary_list .btns .delete {
   color: #e9594b;
 }
-/* line 46, ../sass/_index.scss */
+/* line 52, ../sass/_index.scss */
 #index #primary_list .btns .complete {
   color: #0bcfa0;
 }
-/* line 49, ../sass/_index.scss */
+/* line 55, ../sass/_index.scss */
 #index #primary_list .btns .up,
 #index #primary_list .btns .down {
   -moz-transform: rotate(-90deg);
@@ -182,17 +234,17 @@ body {
   transform: rotate(-90deg);
 }
 @media screen and (min-width: 750px) {
-  /* line 56, ../sass/_index.scss */
+  /* line 62, ../sass/_index.scss */
   #index h1 {
     font-size: 64px;
   }
-  /* line 61, ../sass/_index.scss */
+  /* line 67, ../sass/_index.scss */
   #index #primary_list .btns button {
     font-size: 20px;
   }
 }
 
-/* line 69, ../sass/_index.scss */
+/* line 75, ../sass/_index.scss */
 #add_item {
   border-bottom: 1px solid #bbb;
   box-sizing: border-box;
@@ -200,18 +252,18 @@ body {
   text-align: center;
   position: relative;
 }
-/* line 75, ../sass/_index.scss */
+/* line 81, ../sass/_index.scss */
 #add_item input,
 #add_item button {
   border-radius: 0;
   box-sizing: border-box;
   margin: 8px 0;
 }
-/* line 81, ../sass/_index.scss */
+/* line 87, ../sass/_index.scss */
 #add_item input {
   width: 68%;
 }
-/* line 84, ../sass/_index.scss */
+/* line 90, ../sass/_index.scss */
 #add_item button {
   background: #e44c6c;
   border: none;
@@ -227,20 +279,20 @@ body {
   transition: ease-in-out 0.22s;
   width: 30%;
 }
-/* line 95, ../sass/_index.scss */
+/* line 101, ../sass/_index.scss */
 #add_item button:hover {
   background: #e66d4d;
 }
 @media screen and (min-width: 750px) {
-  /* line 69, ../sass/_index.scss */
+  /* line 75, ../sass/_index.scss */
   #add_item {
     position: relative;
   }
-  /* line 101, ../sass/_index.scss */
+  /* line 107, ../sass/_index.scss */
   #add_item input {
     width: 50%;
   }
-  /* line 104, ../sass/_index.scss */
+  /* line 110, ../sass/_index.scss */
   #add_item button {
     width: 20%;
   }

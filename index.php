@@ -24,12 +24,12 @@
           <div class="gradient_bar"></div>
           <div id="add_item">
             <input type="text" placeholder="Add New Item">
-            <button>Add Item</button>
+            <button id="add_button">Add Item</button>
           </div>
-          <ul>
-            <li>Clean the Dishes <div class="btns"><button class="delete">X</button><button class="up">&gt;</button><button class="down">&lt;</button><button class="complete">&#10004;</button></div></li>
-            <li>Clean the Dishes <div class="btns"><button class="delete">X</button><button class="up">&gt;</button><button class="down">&lt;</button><button class="complete">&#10004;</button></div></li>
-            <li>Clean the Dishes <div class="btns"><button class="delete">X</button><button class="up">&gt;</button><button class="down">&lt;</button><button class="complete">&#10004;</button></div></li>
+          <ul id="to_do_list">
+            <li>Clean the Dishes <div class="btns"><button class="delete">X</button><button class="up">&#62;</button><button class="down">&lt;</button><button class="complete">&#10003;</button></div></li>
+            <li>Wash the car <div class="btns"><button class="delete">X</button><button class="up">&#62;</button><button class="down">&lt;</button><button class="complete">&#10003;</button></div></li>
+            <li>Laundry <div class="btns"><button class="delete">X</button><button class="up">&#62;</button><button class="down">&lt;</button><button class="complete">&#10003;</button></div></li>
           </ul>
         </div>
       </div>
