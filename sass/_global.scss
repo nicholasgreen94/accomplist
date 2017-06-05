@@ -2,7 +2,7 @@
 $green: #0bcfa0;
 $red: #e9594b;
 $orange: #e66d4d;
-$pink: #e44c6c;
+$blue: #09adcb;
 $white: #fff;
 
 //> Typefaces
@@ -24,9 +24,9 @@ body {
 }
 
 .gradient_bar {
-  background: -webkit-linear-gradient(to right, rgba($pink, 1), rgba($orange, 1));
-  background: -o-linear-gradient(to right, rgba($pink, 1), rgba($orange, 1));
-  background: linear-gradient(to right, rgba($pink, 1), rgba($orange, 1));
+  background: -webkit-linear-gradient(to right, rgba($blue, 1), rgba($orange, 1));
+  background: -o-linear-gradient(to right, rgba($blue, 1), rgba($orange, 1));
+  background: linear-gradient(to right, rgba($blue, 1), rgba($orange, 1));
   height: 8px;
   width: 100%;
 }
@@ -51,7 +51,7 @@ body {
   background: $red;
 }
 .deleted {
-  background: $pink;
+  background: $blue;
 }
 .success {
   background: $green;

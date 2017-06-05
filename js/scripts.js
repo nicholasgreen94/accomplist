@@ -5,10 +5,12 @@ var input = document.querySelector('input[type="text"]');
 var addInput = document.getElementById('add_button');
 var toDoList = document.getElementById('to_do_list');
 var firstListItem = document.querySelector('li');
+var listItem = document.querySelectorAll('li');
 var deleteButton = document.querySelectorAll('.delete');
 var up = document.querySelectorAll('#to_do_list .up');
 var down = document.querySelectorAll('#to_do_list .down');
 var complete = document.querySelectorAll('#to_do_list .complete');
+
 
 function addMsg(msgType) {
   var msgValue = msgType;
@@ -97,11 +99,36 @@ toDoList.addEventListener('click', function(e) {
   } else if ( target.className == 'up' ) {
     var currentElement = target.parentNode.parentNode; //> get the list item of the clicked button
     var parent = currentElement.previousElementSibling; //> get the list item before of the clicked one
-    this.insertBefore(currentElement, parent); //>
+    this.insertBefore(currentElement, parent);   
+    if ( currentElement == toDoList.firstElementChild ) {
+      var firstBtns = document.querySelector('.btns');
+      firstBtns = firstBtns.children[1];
+      firstBtns.remove(); // Remove the up arrow element
+      var prevNowNext = currentElement.nextElementSibling.firstElementChild; // get the previous item before the new one and get it's .btns
+      var downArrow = prevNowNext.firstElementChild.nextElementSibling; // get the down button in the prev item
+      var upBtn = document.createElement('button');
+      upBtn.classList.add('up');
+      upBtn.textContent = '>';
+      prevNowNext.appendChild(upBtn); // Append new up button to .btns list
+      prevNowNext.insertBefore(upBtn, downArrow); // and insert the the new up button before the down button
+    }
   } else if ( target.className == 'down' ) {
     var currentElement = target.parentNode.parentNode; //> get the list item of the clicked button
     var afterElement = currentElement.nextElementSibling; //> get the list item above of the clicked one
-    this.insertBefore(afterElement, currentElement); //> Insert currentElement before afterElement
+    this.insertBefore(afterElement, currentElement); //> 
+    
+    if ( currentElement == toDoList.lastElementChild ) {
+      var lastBtns = currentElement.querySelector('.btns');
+      lastBtns = lastBtns.children[2];
+      lastBtns.remove(); // Remove the down arrow element
+      var prevNowBefore = currentElement.previousElementSibling.firstElementChild; // get the previous item before the new one and get it's .btns
+      var completeMark = prevNowBefore.lastElementChild; // get the complete check mark 
+      var downBtn = document.createElement('button');
+      downBtn.classList.add('down');
+      downBtn.textContent = '<';
+      prevNowBefore.appendChild(downBtn); // Append new down button to .btns list
+      prevNowBefore.insertBefore(downBtn, completeMark); // Insert the the new down button before the complete check mark
+    }
+    
   }
-
 });
