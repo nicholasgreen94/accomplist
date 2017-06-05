@@ -60,11 +60,6 @@ function addNewListItem(e) {
     upBtn.classList.add('up');
     upBtn.textContent = '>';
     newDiv.appendChild(upBtn);
-    //> Add a down button
-    var downBtn = document.createElement('button');
-    downBtn.classList.add('down');
-    downBtn.textContent = '<';
-    newDiv.appendChild(downBtn);
     //> Add a complete button
     var completeBtn = document.createElement('button');
     completeBtn.classList.add('complete');
@@ -75,6 +70,15 @@ function addNewListItem(e) {
     input.value = ''; //> Reset value of the input box to empty
     //> Add a message saying adding the new item was successful
     addMsg('added');
+    var previousItem = newListItem.previousElementSibling;
+    var previousBtns = previousItem.firstElementChild;
+    var completeMark = previousBtns.lastElementChild;
+    var downBtn = document.createElement('button');
+    downBtn.classList.add('down');
+    downBtn.textContent = '<';
+    previousBtns.appendChild(downBtn);
+    previousBtns.insertBefore(downBtn, completeMark);
+    
   } else {
     //> If userInput does not have a value, add error message
       addMsg('error');
