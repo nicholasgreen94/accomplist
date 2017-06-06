@@ -103,6 +103,8 @@ toDoList.addEventListener('click', function(e) {
   } else if ( target.className == 'up' ) {
     var currentElement = target.parentNode.parentNode; //> get the list item of the clicked button
     var parent = currentElement.previousElementSibling; //> get the list item before of the clicked one
+    var beforeLastElement = toDoList.lastElementChild;
+    var lastUpArrow = toDoList.lastElementChild.previousElementSibling.firstElementChild.children[2];
     this.insertBefore(currentElement, parent);   
     if ( currentElement == toDoList.firstElementChild ) {
       var firstBtns = document.querySelector('.btns');
@@ -114,11 +116,27 @@ toDoList.addEventListener('click', function(e) {
       upBtn.classList.add('up');
       upBtn.textContent = '>';
       prevNowNext.appendChild(upBtn); // Append new up button to .btns list
-      prevNowNext.insertBefore(upBtn, downArrow); // and insert the the new up button before the down button
+      prevNowNext.insertBefore(upBtn, downArrow); // and insert the the new up button before the down button;
     }
+
+    if ( beforeLastElement != toDoList.lastElementChild ) {
+      var btns = beforeLastElement.firstElementChild;
+      var completeMark = btns.lastElementChild; //> Get check mark
+      console.log(beforeLastElement);
+      var downBtn = document.createElement('button');
+      downBtn.classList.add('down');
+      downBtn.textContent = '<';
+      btns.appendChild(downBtn); // Append new down button to .btns list
+      btns.insertBefore(downBtn, completeMark); // Insert the the new down button before the complete check mark
+      lastUpArrow.remove();
+    }
+
   } else if ( target.className == 'down' ) {
     var currentElement = target.parentNode.parentNode; //> get the list item of the clicked button
     var afterElement = currentElement.nextElementSibling; //> get the list item above of the clicked one
+    var beforeFirstElement = toDoList.firstElementChild;
+    var firstUpArrow = toDoList.lastElementChild.previousElementSibling.firstElementChild.children[1];
+    
     this.insertBefore(afterElement, currentElement); //> 
     
     if ( currentElement == toDoList.lastElementChild ) {
@@ -132,6 +150,17 @@ toDoList.addEventListener('click', function(e) {
       downBtn.textContent = '<';
       prevNowBefore.appendChild(downBtn); // Append new down button to .btns list
       prevNowBefore.insertBefore(downBtn, completeMark); // Insert the the new down button before the complete check mark
+    }
+    
+    if ( beforeFirstElement != toDoList.firstElementChild ) {
+      var btns = beforeFirstElement.firstElementChild; // get .btns of what was the first element
+      var downArrow= btns.firstElementChild.nextElementSibling; //> Get delete button
+      var upBtn = document.createElement('button');
+      upBtn.classList.add('up');
+      upBtn.textContent = '>';
+      btns.appendChild(upBtn); // Append new up button to .btns list
+      btns.insertBefore(upBtn, downArrow); // and insert the the new up button before the down button;
+      firstUpArrow.remove();
     }
     
   }
