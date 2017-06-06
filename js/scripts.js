@@ -122,7 +122,6 @@ toDoList.addEventListener('click', function(e) {
     if ( beforeLastElement != toDoList.lastElementChild ) {
       var btns = beforeLastElement.firstElementChild;
       var completeMark = btns.lastElementChild; //> Get check mark
-      console.log(beforeLastElement);
       var downBtn = document.createElement('button');
       downBtn.classList.add('down');
       downBtn.textContent = '<';
@@ -134,11 +133,7 @@ toDoList.addEventListener('click', function(e) {
   } else if ( target.className == 'down' ) {
     var currentElement = target.parentNode.parentNode; //> get the list item of the clicked button
     var afterElement = currentElement.nextElementSibling; //> get the list item above of the clicked one
-    var beforeFirstElement = toDoList.firstElementChild;
-    var firstUpArrow = toDoList.lastElementChild.previousElementSibling.firstElementChild.children[1];
-    
     this.insertBefore(afterElement, currentElement); //> 
-    
     if ( currentElement == toDoList.lastElementChild ) {
       var lastBtns = currentElement.querySelector('.btns');
       lastBtns = lastBtns.children[2];
@@ -150,18 +145,19 @@ toDoList.addEventListener('click', function(e) {
       downBtn.textContent = '<';
       prevNowBefore.appendChild(downBtn); // Append new down button to .btns list
       prevNowBefore.insertBefore(downBtn, completeMark); // Insert the the new down button before the complete check mark
-    }
-    
-    if ( beforeFirstElement != toDoList.firstElementChild ) {
-      var btns = beforeFirstElement.firstElementChild; // get .btns of what was the first element
+    } else if ( afterElement == toDoList.firstElementChild  ) {
+      var firstUpArrow = toDoList.firstElementChild.firstElementChild.children[1];
+      var btns = currentElement.firstElementChild; // get .btns of what was the first element
+      console.log(btns);
       var downArrow= btns.firstElementChild.nextElementSibling; //> Get delete button
+      console.log(downArrow);
       var upBtn = document.createElement('button');
       upBtn.classList.add('up');
       upBtn.textContent = '>';
       btns.appendChild(upBtn); // Append new up button to .btns list
       btns.insertBefore(upBtn, downArrow); // and insert the the new up button before the down button;
       firstUpArrow.remove();
-    }
+    } 
     
   }
 });
