@@ -93,11 +93,52 @@ addInput.addEventListener('click', function(e) {
 toDoList.addEventListener('click', function(e) {
   var target = e.target;
   if ( target.className == 'delete' ) {
-    target.parentNode.parentNode.remove();
+    var currentElement = target.parentNode.parentNode;
+    var previousElement = currentElement.previousElementSibling;
+    if (currentElement == toDoList.firstElementChild ) { // If the list item that was clicked is the first one
+      var nextListItem = currentElement.nextElementSibling; // Get the next list itemm
+      var btns = nextListItem.firstElementChild; // get its .btns
+      var btnChildren = btns.children;
+      for ( var i = 0; i < btnChildren.length; i++ ){
+        if ( btnChildren[i].className == 'up' ) { // Loop through the buttons and find class name of up
+          btnChildren[i].remove();
+        }
+      }
+    } else if ( currentElement == toDoList.lastElementChild ) { // If the list item that was clicked on is the last of toDoList
+      var btns = previousElement.firstElementChild;
+      var btnChildren = btns.children;
+      for ( var i = 0; i < btnChildren.length; i++ ){
+        if ( btnChildren[i].className == 'down' ) { // Loop through the buttons and find class name of down
+          btnChildren[i].remove();
+        }
+      }
+    }
+    currentElement.remove(); // Remove the list item that was clicked on
     //> Show a message saying the item was deleted 
     addMsg('deleted');
   } else if ( target.className == 'complete' ) {
-    target.parentNode.parentNode.remove();
+    var currentElement = target.parentNode.parentNode;
+    var nextElement = currentElement.nextElementSibling;
+    
+    if ( currentElement == toDoList.firstElementChild ) { // if the currentElement is the first list element in toDoList
+      var btns = nextElement.firstElementChild; // get the next list elements buttons
+      var btnChildren = btns.children;
+      for ( var i = 0; i < btnChildren.length; i++ ){
+        if ( btnChildren[i].className == 'up' ) { // Loop through the buttons and find class name of up
+          btnChildren[i].remove();
+        }
+      }
+    } else if ( currentElement == toDoList.lastElementChild ) {
+      var prevElement = currentElement.previousElementSibling;
+      var btns = prevElement.firstElementChild; // get the previous list element buttons
+      var btnChildren = btns.children;
+      for ( var i = 0; i < btnChildren.length; i++ ){
+        if ( btnChildren[i].className == 'down' ) { // Loop through the buttons and find class name of up
+          btnChildren[i].remove();
+        }
+      }
+    }
+    currentElement.remove();
     //> Message showing the item was successfully completed
     addMsg('success');
   } else if ( target.className == 'up' ) {
@@ -106,10 +147,15 @@ toDoList.addEventListener('click', function(e) {
     var beforeLastElement = toDoList.lastElementChild;
     var lastUpArrow = toDoList.lastElementChild.previousElementSibling.firstElementChild.children[2];
     this.insertBefore(currentElement, parent);   
+    //> If the clicked list element is the first one is the list
     if ( currentElement == toDoList.firstElementChild ) {
-      var firstBtns = document.querySelector('.btns');
-      firstBtns = firstBtns.children[1];
-      firstBtns.remove(); // Remove the up arrow element
+      var btns = document.querySelector('.btns');
+      var btnChildren = btns.children;
+      for ( var i = 0; i < btnChildren.length; i++ ) {
+        if ( btnChildren[i].className == 'up' ) {
+          btnChildren[i].remove();
+        } 
+      }
       var prevNowNext = currentElement.nextElementSibling.firstElementChild; // get the previous item before the new one and get it's .btns
       var downArrow = prevNowNext.firstElementChild.nextElementSibling; // get the down button in the prev item
       var upBtn = document.createElement('button');
@@ -134,29 +180,36 @@ toDoList.addEventListener('click', function(e) {
     var currentElement = target.parentNode.parentNode; //> get the list item of the clicked button
     var afterElement = currentElement.nextElementSibling; //> get the list item above of the clicked one
     this.insertBefore(afterElement, currentElement); //> 
-    if ( currentElement == toDoList.lastElementChild ) {
-      var lastBtns = currentElement.querySelector('.btns');
-      lastBtns = lastBtns.children[2];
-      lastBtns.remove(); // Remove the down arrow element
-      var prevNowBefore = currentElement.previousElementSibling.firstElementChild; // get the previous item before the new one and get it's .btns
-      var completeMark = prevNowBefore.lastElementChild; // get the complete check mark 
+    if ( currentElement == toDoList.lastElementChild ) { // if the currentElement is equal to the last item in the list
+      var prevBtns = currentElement.previousElementSibling.firstElementChild; // get the previous item before the new one and get it's .btns
+      var prevBtnsChildren = prevBtns.lastElementChild; // get the complete check mark 
       var downBtn = document.createElement('button');
       downBtn.classList.add('down');
       downBtn.textContent = '<';
-      prevNowBefore.appendChild(downBtn); // Append new down button to .btns list
-      prevNowBefore.insertBefore(downBtn, completeMark); // Insert the the new down button before the complete check mark
+      prevBtns.appendChild(downBtn); // Append new down button to .btns list
+      prevBtns.insertBefore(downBtn, prevBtnsChildren); // Insert the the new down button before the complete check mark
+      
+      var btnContainer = currentElement.querySelector('.btns'); // Get the currentElements .btns
+      var btns = btnContainer.children; // get the children inside of .btns
+      
+      for ( var i = 0; i < btns.length; i++ ) {
+        if ( btns[i].className == 'down' ) {
+          var deleteButton = btns[i];
+          deleteButton.remove(); // remove deleteButton
+        }
+      }
+      
     } else if ( afterElement == toDoList.firstElementChild  ) {
       var firstUpArrow = toDoList.firstElementChild.firstElementChild.children[1];
       var btns = currentElement.firstElementChild; // get .btns of what was the first element
-      console.log(btns);
       var downArrow= btns.firstElementChild.nextElementSibling; //> Get delete button
-      console.log(downArrow);
       var upBtn = document.createElement('button');
       upBtn.classList.add('up');
       upBtn.textContent = '>';
       btns.appendChild(upBtn); // Append new up button to .btns list
       btns.insertBefore(upBtn, downArrow); // and insert the the new up button before the down button;
       firstUpArrow.remove();
+      
     } 
     
   }
