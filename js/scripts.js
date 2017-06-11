@@ -42,6 +42,7 @@ function removeMsg(message) {
   }, 5000);
 }
 
+
 function addNewListItem(e) {
   var newListItem = document.createElement('li');
   var newDiv = document.createElement('div');
@@ -64,6 +65,7 @@ function addNewListItem(e) {
       newListItem.appendChild(newDiv);
       toDoList.appendChild(newListItem);
       input.value = '';
+      addMsg('added');
     } else {
       //> Add a delete button
       deleteBtn.classList.add('delete');
@@ -97,8 +99,13 @@ function addNewListItem(e) {
     //> If userInput does not have a value, add error message
       addMsg('error');
     }
+    localStorage.setItem('to_do_list', toDoList.innerHTML);
   e.stopPropagation();
 }
+
+ if ( localStorage.getItem('to_do_list') ) {
+  toDoList.innerHTML = localStorage.getItem('to_do_list');
+ }
 
 addInput.addEventListener('click', function(e) {
   addNewListItem(e);
@@ -106,9 +113,10 @@ addInput.addEventListener('click', function(e) {
 
 toDoList.addEventListener('click', function(e) {
   var target = e.target;
+  var currentElement = target.parentNode.parentNode;
+  var previousElement = currentElement.previousElementSibling;
   if ( target.className == 'delete' ) {
-    var currentElement = target.parentNode.parentNode;
-    var previousElement = currentElement.previousElementSibling;
+    var removeItem = 
     if (currentElement == toDoList.firstElementChild ) { // If the list item that was clicked is the first one
       if ( toDoList.children.length == 1 ) {
         currentElement.remove();
@@ -116,13 +124,13 @@ toDoList.addEventListener('click', function(e) {
       var nextListItem = currentElement.nextElementSibling; // Get the next list item
       var btns = nextListItem.firstElementChild; // get its .btns
       var btnChildren = btns.children;
-      for ( var i = 0; i < btnChildren.length; i++ ){
+      for ( var i = 0; i < btnChildren.length; i++ ) {
         if ( btnChildren[i].className == 'up' ) { // Loop through the buttons and find class name of up
           btnChildren[i].remove();
         }
       }
     } else if ( currentElement == toDoList.lastElementChild ) { // If the list item that was clicked on is the last of toDoList
-      var btns = previousElement.firstElementChild;
+      var btns = previousElement.firstElementChild; // Get the previous elements .btns
       var btnChildren = btns.children;
       for ( var i = 0; i < btnChildren.length; i++ ){
         if ( btnChildren[i].className == 'down' ) { // Loop through the buttons and find class name of down
@@ -134,7 +142,6 @@ toDoList.addEventListener('click', function(e) {
     //> Show a message saying the item was deleted 
     addMsg('deleted');
   } else if ( target.className == 'complete' ) {
-    var currentElement = target.parentNode.parentNode;
     var nextElement = currentElement.nextElementSibling;
     if ( toDoList.children.length == 1 ) {
       currentElement.remove();
@@ -148,8 +155,7 @@ toDoList.addEventListener('click', function(e) {
         }
       }
     } else if ( currentElement == toDoList.lastElementChild ) {
-      var prevElement = currentElement.previousElementSibling;
-      var btns = prevElement.firstElementChild; // get the previous list element buttons
+      var btns = previousElement.firstElementChild; // get the previous list element buttons
       var btnChildren = btns.children;
       for ( var i = 0; i < btnChildren.length; i++ ){
         if ( btnChildren[i].className == 'down' ) { // Loop through the buttons and find class name of up
@@ -161,7 +167,6 @@ toDoList.addEventListener('click', function(e) {
     //> Message showing the item was successfully completed
     addMsg('success');
   } else if ( target.className == 'up' ) {
-    var currentElement = target.parentNode.parentNode; //> get the list item of the clicked button
     var parent = currentElement.previousElementSibling; //> get the list item before of the clicked one
     var beforeLastElement = toDoList.lastElementChild;
     this.insertBefore(currentElement, parent);   
@@ -196,7 +201,6 @@ toDoList.addEventListener('click', function(e) {
     }
 
   } else if ( target.className == 'down' ) {
-    var currentElement = target.parentNode.parentNode; //> get the list item of the clicked button
     var afterElement = currentElement.nextElementSibling; //> get the list item above of the clicked one
     this.insertBefore(afterElement, currentElement); //> 
     if ( currentElement == toDoList.lastElementChild ) { // if the currentElement is equal to the last item in the list
