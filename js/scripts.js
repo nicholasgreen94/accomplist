@@ -103,9 +103,6 @@ function addNewListItem(e) {
   e.stopPropagation();
 }
 
- if ( localStorage.getItem('to_do_list') ) {
-  toDoList.innerHTML = localStorage.getItem('to_do_list');
- }
 
 addInput.addEventListener('click', function(e) {
   addNewListItem(e);
@@ -116,7 +113,6 @@ toDoList.addEventListener('click', function(e) {
   var currentElement = target.parentNode.parentNode;
   var previousElement = currentElement.previousElementSibling;
   if ( target.className == 'delete' ) {
-    var removeItem = 
     if (currentElement == toDoList.firstElementChild ) { // If the list item that was clicked is the first one
       if ( toDoList.children.length == 1 ) {
         currentElement.remove();
@@ -141,6 +137,7 @@ toDoList.addEventListener('click', function(e) {
     currentElement.remove(); // Remove the list item that was clicked on
     //> Show a message saying the item was deleted 
     addMsg('deleted');
+    localStorage.setItem('to_do_list', toDoList.innerHTML);
   } else if ( target.className == 'complete' ) {
     var nextElement = currentElement.nextElementSibling;
     if ( toDoList.children.length == 1 ) {
@@ -166,6 +163,7 @@ toDoList.addEventListener('click', function(e) {
     currentElement.remove();
     //> Message showing the item was successfully completed
     addMsg('success');
+    localStorage.setItem('to_do_list', toDoList.innerHTML);
   } else if ( target.className == 'up' ) {
     var parent = currentElement.previousElementSibling; //> get the list item before of the clicked one
     var beforeLastElement = toDoList.lastElementChild;
@@ -248,3 +246,7 @@ toDoList.addEventListener('click', function(e) {
     
   }
 });
+
+if ( localStorage.getItem('to_do_list') ) {
+ toDoList.innerHTML = localStorage.getItem('to_do_list');
+}
