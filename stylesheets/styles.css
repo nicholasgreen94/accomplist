@@ -87,7 +87,7 @@ body {
 }
 
 /* line 28, ../sass/_global.scss */
-.gradient_bar {
+.purple_bar {
   background: #de85e6;
   height: 8px;
   width: 100%;
@@ -228,11 +228,11 @@ body {
 }
 /* line 49, ../sass/_index.scss */
 #index #primary_list .btns .delete {
-  color: #e9594b;
+  color: #d35bdd;
 }
 /* line 52, ../sass/_index.scss */
 #index #primary_list .btns .complete {
-  color: #0bcfa0;
+  color: #385ff7;
 }
 /* line 55, ../sass/_index.scss */
 #index #primary_list .btns .up,

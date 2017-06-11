@@ -47,10 +47,10 @@
         }
       }
       .delete {
-        color: $red;;
+        color: darken($purple, 10%);
       }
       .complete {
-        color: $green;
+        color: darken($blue, 20%);
       }
       .up,
       .down {
