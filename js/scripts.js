@@ -116,6 +116,7 @@ toDoList.addEventListener('click', function(e) {
     if (currentElement == toDoList.firstElementChild ) { // If the list item that was clicked is the first one
       if ( toDoList.children.length == 1 ) {
         currentElement.remove();
+        addMsg('deleted');
       }
       var nextListItem = currentElement.nextElementSibling; // Get the next list item
       var btns = nextListItem.firstElementChild; // get its .btns
@@ -142,6 +143,7 @@ toDoList.addEventListener('click', function(e) {
     var nextElement = currentElement.nextElementSibling;
     if ( toDoList.children.length == 1 ) {
       currentElement.remove();
+      addMsg('success');
     }
     if ( currentElement == toDoList.firstElementChild ) { // if the currentElement is the first list element in toDoList
       var btns = nextElement.firstElementChild; // get the next list elements buttons

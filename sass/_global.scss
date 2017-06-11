@@ -1,14 +1,16 @@
 //> Colors
 $green: #0bcfa0;
 $red: #e9594b;
-$orange: #e66d4d;
-$blue: #09adcb;
+$purple: #de85e6;
+$blue: #9aaefb;
 $white: #fff;
 
 //> Typefaces
 $questrial: "questrial", sans-serif;
 
 body {
+  background: image-url('background.jpg') no-repeat center center;
+  background-size: cover;
   box-sizing: border-box;
   font-family: $questrial;
   line-height: 1.5;
@@ -24,9 +26,7 @@ body {
 }
 
 .gradient_bar {
-  background: -webkit-linear-gradient(to right, rgba($blue, 1), rgba($orange, 1));
-  background: -o-linear-gradient(to right, rgba($blue, 1), rgba($orange, 1));
-  background: linear-gradient(to right, rgba($blue, 1), rgba($orange, 1));
+  background: $purple;
   height: 8px;
   width: 100%;
 }
@@ -57,7 +57,7 @@ body {
   background: $green;
 }
 .added {
-  background: $orange;
+  background: $purple;
 }
 
 @keyframes slide {

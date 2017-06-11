@@ -1,15 +1,13 @@
 
 #main_header {
   box-sizing: border-box;
-  background: -webkit-linear-gradient(to right, rgba($blue, 1), rgba($orange, 1));
-  background: -o-linear-gradient(to right, rgba($blue, 1), rgba($orange, 1));
-  background: linear-gradient(to right, rgba($blue, 1), rgba($orange, 1));
-  height: 46px;
+  background: $white;
+  height: 64px;
   padding: 6px 0;
   text-align: center;
   position:relative;
   img {
-    width: 108px;
+    width: 178px;
     @include transform( translateX(-50%) );
     position: absolute;
     top: 50%;
