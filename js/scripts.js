@@ -2,6 +2,7 @@
 //> Initial variables
 var primaryList = document.getElementById('primary_list');
 var input = document.querySelector('input[type="text"]');
+var form = document.getElementById('add_item');
 var addInput = document.getElementById('add_button');
 var toDoList = document.getElementById('to_do_list');
 var firstListItem = document.querySelector('li');
@@ -44,6 +45,7 @@ function removeMsg(message) {
 
 
 function addNewListItem(e) {
+  e.preventDefault();
   var newListItem = document.createElement('li');
   var newDiv = document.createElement('div');
   var deleteBtn = document.createElement('button');
@@ -104,9 +106,9 @@ function addNewListItem(e) {
 }
 
 
-addInput.addEventListener('click', function(e) {
+form.addEventListener('submit', function(e) {
   addNewListItem(e);
-});
+}, false);
 
 toDoList.addEventListener('click', function(e) {
   var target = e.target;
